@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "778996691212",
+    "project_id": "diyetisyen-e2bb9",
+    "storage_bucket": "diyetisyen-e2bb9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778996691212:android:8c8dfd1d4d5e69dc9d5929",
+        "android_client_info": {
+          "package_name": "com.example.diyetisyen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBreqza3jzdbFZJhFTTR0dZp2UKV0_7Z2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

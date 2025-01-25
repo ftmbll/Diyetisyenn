@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yazi_rengi">#828282</color>
+    <color name="blue">#276BF0</color>
+    <color name="darkPurple">#22223B</color>
+    <color name="grey">#808080</color>
+    <color name="lightBeg">#F2E9E4</color>
+    <color name="lightGreen">#AEFFEC</color>
+    <color name="get_started_button">#F1F1F1</color>
+    <color name="yazi_rengi_mavi">#276BF0</color>
+    <color name="get_started">#C0BE1D</color>
+</resources>
