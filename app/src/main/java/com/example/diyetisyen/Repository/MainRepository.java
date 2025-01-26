@@ -18,17 +18,17 @@ public class MainRepository {
     private final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
     public LiveData<List<DoctorsModel>> load() {
-        MutableLiveData<List<DoctorsModel>> listData = new MutableLiveData<>();
+        MutableLiveData<List<DoctorsModel>> listData = new MutableLiveData<>(); //mutablelivedata bir veri tutucu sınıfıdır. verileri güncelleme özelliğine sahip
         DatabaseReference ref = firebaseDatabase.getReference("Doctors");
 
-        ref.addValueEventListener(new ValueEventListener() {
+        ref.addValueEventListener(new ValueEventListener() { //firebaseden verileri çekmek için kullanılan listener türü
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 List<DoctorsModel> lists = new ArrayList<>();
-                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                    DoctorsModel item = childSnapshot.getValue(DoctorsModel.class);
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) { //verileri listeye ekler
+                    DoctorsModel item = childSnapshot.getValue(DoctorsModel.class); //verileri DoctorsModel sınıfına dönüştürür
                     if (item != null) {
-                        lists.add(item);
+                        lists.add(item); //listeye ekler
                     }
                 }
                 listData.setValue(lists);

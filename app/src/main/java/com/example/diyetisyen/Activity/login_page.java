@@ -44,39 +44,39 @@ public class login_page extends BaseActivity2 {
                 String usernameInput = UsernameText.getText().toString();
                 String passwordInput = PasswordText.getText().toString();
 
-                if (TextUtils.isEmpty(usernameInput)) {
-                    Toast.makeText(login_page.this, "Please enter your full name", Toast.LENGTH_LONG).show();
-                    UsernameText.setError("Full Name is Required");
+                if (TextUtils.isEmpty(usernameInput)) { // Kullanıcı adı boş mu kontrol edilir
+                    Toast.makeText(login_page.this, "Lütfen kullanıcı adınızı giriniz", Toast.LENGTH_LONG).show();
+                    UsernameText.setError("Kullanıcı Adı Girmek Zorunlu");
                     UsernameText.requestFocus();
-                } else if (TextUtils.isEmpty(passwordInput)) {
-                    Toast.makeText(login_page.this, "Please enter your password", Toast.LENGTH_LONG).show();
-                    PasswordText.setError("Full Name is Required");
+                } else if (TextUtils.isEmpty(passwordInput)) { // Şifre boş mu kontrol edilir
+                    Toast.makeText(login_page.this, "Lütfen şifrenizi giriniz", Toast.LENGTH_LONG).show();
+                    PasswordText.setError("Şifre Girmek Zorunlu");
                     PasswordText.requestFocus();
                 }
 
-                Intent intent = new Intent(login_page.this, MainActivity.class);
+                Intent intent = new Intent(login_page.this, MainActivity.class); // Başarılı girişte ana sayfaya yönlendirme
                 startActivity(intent);
 
             }
 
         });
 
-        Button createAccountBtn = findViewById(R.id.createAccountBtn);
-        createAccountBtn.setOnClickListener(new View.OnClickListener() {
+        Button createAccountBtn = findViewById(R.id.createAccountBtn); // Kayıt ol butonu
+        createAccountBtn.setOnClickListener(new View.OnClickListener() { // Kayıt ol butonuna tıklandığında
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(login_page.this, RegisterPage.class);
+                Intent intent = new Intent(login_page.this, RegisterPage.class); // Kayıt sayfasına yönlendirme
                 startActivity(intent);
 
             }
         });
 
-        ForgotPasswordBtn = findViewById(R.id.ForgotPasswordBtn);
+        ForgotPasswordBtn = findViewById(R.id.ForgotPasswordBtn); // Şifre sıfırlama butonu
         ForgotPasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(login_page.this, ResetpasswordActivity.class);
+                Intent intent = new Intent(login_page.this, ResetpasswordActivity.class); // Şifre sıfırlama sayfasına yönlendirme
                 startActivity(intent);
             }
         });

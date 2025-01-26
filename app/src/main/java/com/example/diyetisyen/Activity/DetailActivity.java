@@ -29,20 +29,20 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
-    private void getBundle(){
-        DoctorsModel item = getIntent().getParcelableExtra("object");
+    private void getBundle(){ //veri alımı
+        DoctorsModel item = getIntent().getParcelableExtra("object");  //Intent, bir Activity'den diğerine veri taşımak için kullanılır
 
         if (item != null){
             binding.specialTxt.setText(item.getSpecial());
-            binding.danisanTxt.setText(item.getPatiens());
+            binding.danisanTxt.setText(item.getPatients());
             binding.bioTxt.setText(item.getBiography());
             binding.addressTxt.setText(item.getAddress());
             binding.clockTxt.setText(item.getTime());
             binding.dateTxt.setText(item.getDate());
-            binding.deneyimTxt.setText(item.getExprience() + " Years");
+            binding.deneyimTxt.setText(item.getExperience() + " Years");
             binding.PuanlamaTxt.setText(String.valueOf(item.getRating()));
 
-            // Geri butonu işlemi
+            // Geri butonu işlemi, detail sayfası kapatılır
             binding.backButton.setOnClickListener(v -> finish());
 
             // Web sitesine gitme işlemi
@@ -52,7 +52,7 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             });
 
-            // Mesaj gönderme işlemi
+            // Mesaj gönderme işlemi (sms)
             binding.mesajButon.setOnClickListener(view ->{
                 Uri uri = Uri.parse("smsto:" + item.getMobile());
                 Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
@@ -63,14 +63,14 @@ public class DetailActivity extends AppCompatActivity {
             // Telefon araması işlemi
             binding.tefefonButon.setOnClickListener(view -> {
                 String uri = "tel:" + item.getMobile().trim();
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(uri));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(uri)); //doktor numarasını oto olarak arama kısmına girer
                 startActivity(intent);
             });
 
             // Resmin yüklenmesi
             Glide.with(this)
-                    .load(item.getPicture())
-                    .into(binding.img);
+                    .load(item.getPicture()) //resmin dosya yolunu döndürür
+                    .into(binding.img); //yüklenen image in hangi imageview'a yükleneceğini belirtir
         }
     }
 

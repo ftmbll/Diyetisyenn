@@ -37,7 +37,7 @@
             android:layout_height="59dp"
             android:layout_marginBottom="60dp"
             android:background="@color/get_started_button"
-            android:text="Get Started"
+            android:text="Hadi Başlayalım"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -48,7 +48,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Hoş geldin!"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

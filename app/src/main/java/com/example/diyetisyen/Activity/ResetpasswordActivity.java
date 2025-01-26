@@ -38,16 +38,16 @@ public class ResetpasswordActivity extends AppCompatActivity {
 
 
         email_reset = findViewById(R.id.email_reset);
-        Button sendLinkBtn = findViewById(R.id.sendLinkBtn);
+        Button sendLinkBtn = findViewById(R.id.sendLinkBtn); // Şifre sıfırlama bağlantısı gönderme butonu
         sendLinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String emailReset =  email_reset.getText().toString();
+                String emailReset =  email_reset.getText().toString(); // Kullanıcıdan email alınıyor
 
-                if (TextUtils.isEmpty(emailReset)){
-                    Toast.makeText(ResetpasswordActivity.this, "Please enter your email", Toast.LENGTH_LONG).show();
-                    email_reset.setError("Email is Required");
+                if (TextUtils.isEmpty(emailReset)){ // Eğer email boş ise
+                    Toast.makeText(ResetpasswordActivity.this, "Email girmek zorunludur", Toast.LENGTH_LONG).show();
+                    email_reset.setError("Email zorunludur");
                     email_reset.requestFocus();
                     return;
                 }
@@ -56,7 +56,7 @@ public class ResetpasswordActivity extends AppCompatActivity {
                 mAuth.sendPasswordResetEmail(emailReset)
                         .addOnCompleteListener(task -> {
                             if(task.isSuccessful()){
-                                Toast.makeText(ResetpasswordActivity.this, "Password reset link sent to your email.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ResetpasswordActivity.this, "Şifre sıfırlama bağlantısı mailinize gönderildi", Toast.LENGTH_LONG).show();
                             }else {
                                 Toast.makeText(ResetpasswordActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             }

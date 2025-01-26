@@ -35,7 +35,7 @@ public class RegisterPage extends BaseActivity2 {
     FirebaseAuth fAuth;
     ProgressBar mProgressBar;
 
-    public static final String TAG = "TAG";
+    public static final String TAG = "TAG"; // Firebase hata mesajları için
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,24 +81,24 @@ public class RegisterPage extends BaseActivity2 {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(RegisterPage.this, "User Create", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterPage.this, "Kullanıcı oluşturuldu", Toast.LENGTH_SHORT).show(); // Kullanıcı oluşturuldu mesajı
                             startActivitySecond();
 
-                            //send verification code
+                            // Mail doğrulama
                             FirebaseUser fuser = fAuth.getCurrentUser();
                             fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(RegisterPage.this, "Doğrulama maili gönderildi.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegisterPage.this, "Doğrulama maili gönderildi", Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG,"onFailure: Email gönderilmedi" + e.getMessage());
+                                    Log.d(TAG,"onFailure: Email gönderilemedi" + e.getMessage());
                                 }
                             });
                         }else {
-                            Toast.makeText(RegisterPage.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterPage.this, "Bir hata meydana geldi" + task.getException().getMessage(), Toast.LENGTH_SHORT).show(); // Hata mesajı
                             mProgressBar.setVisibility(View.GONE);
                         }
                     }
@@ -106,18 +106,18 @@ public class RegisterPage extends BaseActivity2 {
             }
         });
 
-        loginText = findViewById(R.id.loginText);
+        loginText = findViewById(R.id.loginText); // Giriş sayfasına yönlendirme için text tanımı yapıldı
         loginText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterPage.this, login_page.class);
+                Intent intent = new Intent(RegisterPage.this, login_page.class); // Giriş sayfasına yönlendirme
                 startActivity(intent);
             }
         });
     }
 
     private void startActivitySecond(){
-        Intent intent = new Intent(RegisterPage.this, login_page.class);
+        Intent intent = new Intent(RegisterPage.this, login_page.class); // Giriş sayfasına yönlendirme
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

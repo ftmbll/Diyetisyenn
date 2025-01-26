@@ -14,7 +14,7 @@ import com.example.diyetisyen.databinding.ViewholderNearbyDoctorBinding;
 
 import java.util.List;
 
-public class NearDoctorsAdapter extends RecyclerView.Adapter<NearDoctorsAdapter.ViewHolder> {
+public class NearDoctorsAdapter extends RecyclerView.Adapter<NearDoctorsAdapter.ViewHolder> { //doktorları listelemek için kullanılan bir RecyclerView.Adapter sınıfı oluşturduk.
 
     private List<DoctorsModel> items;
     private Context context;
@@ -26,7 +26,7 @@ public class NearDoctorsAdapter extends RecyclerView.Adapter<NearDoctorsAdapter.
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ViewholderNearbyDoctorBinding binding;
 
-        public ViewHolder(ViewholderNearbyDoctorBinding binding) {
+        public ViewHolder(ViewholderNearbyDoctorBinding binding) { //ViewHolder, her bir liste elemanının görüntüsünü tutar
             super(binding.getRoot());
             this.binding = binding;
         }
@@ -42,7 +42,7 @@ public class NearDoctorsAdapter extends RecyclerView.Adapter<NearDoctorsAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) { //items listesinden doktor bilgilerini alır ve ilgili TextView bileşenlerine atar
         DoctorsModel doctor = items.get(position);
         holder.binding.nameTxt.setText(doctor.getName());
         holder.binding.specialTxt.setText(doctor.getSpecial());
@@ -55,7 +55,7 @@ public class NearDoctorsAdapter extends RecyclerView.Adapter<NearDoctorsAdapter.
     }
 
     @Override
-    public int getItemCount() {
-        return items.size();
+    public int getItemCount() { //adaptörün kaç öğe içerdiğini döndürür
+        return items.size(); //items listesinin boyutunu döndürür
     }
 }

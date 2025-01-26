@@ -3,7 +3,7 @@ package com.example.diyetisyen.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class DoctorsModel implements Parcelable {
+public class DoctorsModel implements Parcelable { //parcelable ile sınıfın nesnelerinin diğer aktiviteler arasında taşınabilir hale gelmesini sağlar
     private String Address;
     private String Biography;
     private int Id;
@@ -11,13 +11,13 @@ public class DoctorsModel implements Parcelable {
     private String Picture;
     private String Special;
     private int Experience;
-    private String Cast;
+    private String Cost;
     private String Date;
     private String Time;
     private String location;
     private String Mobile;
-    private String Patiens;
-    private double Raiting;
+    private String Patients;
+    private double Rating;
     private String Site;
 
     public DoctorsModel(){
@@ -28,13 +28,13 @@ public class DoctorsModel implements Parcelable {
         this.Picture = "";
         this.Special = "";
         this.Experience = 0;
-        this.Cast = "";
+        this.Cost = "";
         this.Date = "";
         this.Time = "";
         this.location = "";
         this.Mobile = "";
-        this.Patiens = "";
-        this.Raiting = 0.0;
+        this.Patients = "";
+        this.Rating = 0.0;
         this.Site = "";
     }
 
@@ -46,13 +46,13 @@ public class DoctorsModel implements Parcelable {
         Picture = in.readString();
         Special = in.readString();
         Experience = in.readInt();
-        Cast = in.readString();
+        Cost = in.readString();
         Date = in.readString();
         Time = in.readString();
         location = in.readString();
         Mobile = in.readString();
-        Patiens = in.readString();
-        Raiting = in.readDouble();
+        Patients = in.readString();
+        Rating = in.readDouble();
         Site = in.readString();
     }
 
@@ -60,7 +60,7 @@ public class DoctorsModel implements Parcelable {
         @Override
         public DoctorsModel createFromParcel(Parcel in) {
             return new DoctorsModel(in);
-        }
+        } //parcel nesnesinden sınıf özelliklerini okur
 
         @Override
         public DoctorsModel[] newArray(int size) {
@@ -69,7 +69,7 @@ public class DoctorsModel implements Parcelable {
     };
 
     @Override
-    public void writeToParcel(Parcel parcel, int flags){
+    public void writeToParcel(Parcel parcel, int flags){ //nesnenin verilerini başka bir aktiviteye göndermek için gerekli metod
         parcel.writeString(Address);
         parcel.writeString(Biography);
         parcel.writeInt(Id);
@@ -77,13 +77,13 @@ public class DoctorsModel implements Parcelable {
         parcel.writeString(Picture);
         parcel.writeString(Special);
         parcel.writeInt(Experience);
-        parcel.writeString(Cast);
+        parcel.writeString(Cost);
         parcel.writeString(Date);
         parcel.writeString(Time);
         parcel.writeString(location);
         parcel.writeString(Mobile);
-        parcel.writeString(Patiens);
-        parcel.writeDouble(Raiting);
+        parcel.writeString(Patients);
+        parcel.writeDouble(Rating);
         parcel.writeString(Site);
     }
 
@@ -92,7 +92,7 @@ public class DoctorsModel implements Parcelable {
         return 0;
     }
 
-    // Getter ve Setter metodları
+    // Getter ve Setter metodları, sınıf içindeki verilere dışarıdan erişmek için
     public String getAddress(){
         return Address;
     }
@@ -141,20 +141,20 @@ public class DoctorsModel implements Parcelable {
         Special = special;
     }
 
-    public int getExprience() {
+    public int getExperience() {
         return Experience;
     }
 
-    public void setExprience(int exprience) {
-        Experience = exprience;
+    public void setExperience(int experience) {
+        Experience = experience;
     }
 
     public String getCost() {
-        return Cast;
+        return Cost;
     }
 
-    public void setCost(String cast) {
-        Cast = cast;
+    public void setCost(String cost) {
+        Cost = cost;
     }
 
     public String getDate() {
@@ -189,20 +189,20 @@ public class DoctorsModel implements Parcelable {
         Mobile = mobile;
     }
 
-    public String getPatiens() {
-        return Patiens;
+    public String getPatients() {
+        return Patients;
     }
 
-    public void setPatiens(String patiens) {
-        Patiens = patiens;
+    public void setPatients(String patients) {
+        Patients = patients;
     }
 
     public double getRating() {
-        return Raiting;
+        return Rating;
     }
 
     public void setRating(double rating) {
-        Raiting = rating;
+        Rating = rating;
     }
 
     public String getSite() {

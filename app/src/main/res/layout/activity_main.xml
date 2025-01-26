@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/lightBeg"
     tools:context=".Activity.MainActivity">
 
     <ScrollView
@@ -99,6 +99,16 @@
                     android:layout_height="wrap_content"
                     android:text="Hepsini Gör"
                     android:textColor="@color/darkPurple" />
+                <TextView
+                    android:id="@+id/emptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Doktor bulunamadı"
+                    android:textSize="18sp"
+                    android:textColor="#FF0000"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
