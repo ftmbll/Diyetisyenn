@@ -91,7 +91,7 @@
         android:layout_marginStart="58dp"
         android:clickable="true"
         android:focusable="true"
-        android:text="<- Giriş ekranına dön"
+        android:text="&lt;- Giriş ekranına dön"
         android:textColor="@color/blue"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"

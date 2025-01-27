@@ -1,7 +1,9 @@
 package com.example.diyetisyen.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -9,6 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.diyetisyen.Activity.DetailActivity;
 import com.example.diyetisyen.Model.DoctorsModel;
 import com.example.diyetisyen.databinding.ViewholderNearbyDoctorBinding;
 
@@ -52,6 +55,18 @@ public class NearDoctorsAdapter extends RecyclerView.Adapter<NearDoctorsAdapter.
                 .load(doctor.getPicture())
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.binding.img);
+
+        holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("object", items.get(position));
+                if(context != null){
+                    context.startActivity(intent);
+                }
+            }
+        });
+
     }
 
     @Override
